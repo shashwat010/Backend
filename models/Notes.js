@@ -1,4 +1,5 @@
 const mongoose=require('mongoose');
+const {Schema}=mongoose;
 
 const notesSchema=new Schema({
     title:{
@@ -14,8 +15,9 @@ const notesSchema=new Schema({
     },
     date:{
         type:Date,
-        required:true
+        default:Date.now
     },
 })
 
-module.exports=mongoose.Schema('user',notesSchema);
+const notes=mongoose.model('notes',notesSchema);
+module.exports=notes;
