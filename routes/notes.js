@@ -60,7 +60,7 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
         note = await Notes.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true });
         res.json({ note });
     } catch (error) {
-        console.error(error.message);
+        console.error(error);
         res.status(500).send('Internal Server Error');
     }
 })
